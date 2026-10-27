@@ -1,0 +1,70 @@
+/* Comfortable touch targets without resizing board cells or changing canvas coordinates. */
+body[data-game] button,body[data-game] select{min-width:44px!important;min-height:44px!important}
+body[data-game] select{font-size:16px}
+/* Transparent puzzle hit regions must retain their exact grid geometry. */
+body[data-game=puzzle] #board button{min-width:0!important;min-height:0!important}
+body[data-game=block] #sound{min-width:44px!important;min-height:44px!important;width:44px!important;height:44px!important}
+body[data-game=block] header #pause{width:44px;flex:0 0 44px;padding:0;font-size:0;border:1px solid #62788066;background:#253443;color:#c7dacf}
+body[data-game=block] header #pause:before{content:attr(data-glyph);font:18px system-ui}
+body[data-game] button:focus-visible,body[data-game] select:focus-visible, .portal-back:focus-visible{outline:3px solid #bf7936;outline-offset:3px}
+body[data-game] dialog{max-height:calc(100svh - 24px);overflow:auto;overscroll-behavior:contain}
+.portal-back{display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 12px max(8px,env(safe-area-inset-bottom));box-sizing:border-box;font:13px/1.4 system-ui;color:inherit;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:600px){
+ body[data-game=sky] .utility{height:44px}
+ body[data-game=sky] footer{height:44px;gap:8px}
+ body[data-game=sky] footer #renderMode{display:none}
+ body[data-game=sky] footer .portal-back{padding:0;min-height:44px;font-size:11px}
+ body[data-game=sky] .stage .icon{padding:3px}
+ body[data-game=block] nav button{font-size:11px}
+ body[data-game=block] header .brand{max-width:calc(100% - 104px);flex:1}
+ body[data-game=block] header #pause{width:44px;flex:0 0 44px;padding:0;font-size:0;border:1px solid #62788066;background:#253443;color:#c7dacf}
+ body[data-game=block] header #pause:before{content:attr(data-glyph);font:18px system-ui}
+ body[data-game=block] .language-row{height:auto;margin-top:6px;text-align:right}
+ body[data-game=block] .language-row button{position:static;max-width:none;font-size:11px;padding:6px 12px}
+ body[data-game=block] .studio-tools button{font-size:11px}
+ body[data-game=twins] .pad{grid-template-rows:44px 44px 44px}
+}
+@media(max-width:600px) and (orientation:portrait) and (max-height:760px){
+ body[data-game=twins].play-active main{padding:6px 12px 8px}
+ body[data-game=twins].play-active header .eyebrow,
+ body[data-game=twins].play-active h1 span,
+ body[data-game=twins].play-active .language-row,
+ body[data-game=twins].play-active .tip,
+ body[data-game=twins].play-active main>footer{display:none}
+ body[data-game=twins].play-active h1{font-size:22px;margin:0;letter-spacing:1px}
+ body[data-game=twins].play-active .chapter{margin:3px 0;font-size:12px}
+ body[data-game=twins].play-active .board{width:min(100%,max(240px,calc(100svh - 355px)));margin-inline:auto;border-radius:16px}
+ body[data-game=twins].play-active .legend{padding:0 0 4px;font-size:9px}
+ body[data-game=twins].play-active .status{margin-top:5px;gap:8px}
+ body[data-game=twins].play-active #message{margin:5px 0;min-height:20px;font-size:11px}
+ body[data-game=twins].play-active .controls{flex-wrap:nowrap;gap:12px}
+ body[data-game=twins].play-active .tools{width:auto;flex-direction:column;gap:4px}
+ body[data-game=twins].play-active .tools button{padding:4px 8px;font-size:11px}
+ body[data-game=twins].play-active .pad{margin:0;grid-template-columns:44px 44px 44px;grid-template-rows:44px 44px 44px;gap:4px}
+ body[data-game=bite] main,body[data-game=squish] main{padding-top:8px;padding-inline:12px}
+ body[data-game=bite] header .kicker,body[data-game=squish] header .eyebrow{display:none}
+ body[data-game=bite] h1,body[data-game=squish] h1{font-size:22px;margin:2px 0}
+ body[data-game=bite] h1 small{font-size:10px}
+ body[data-game=bite] .mini-bar,body[data-game=squish] .utility{margin:4px 0}
+ body[data-game=bite] .stage{width:min(100%,calc((100svh - 295px)*360/430));margin-inline:auto}
+ body[data-game=squish] .stage{width:min(100%,calc((100svh - 300px)*360/480));margin-inline:auto}
+ body[data-game=bite].play-active .mini-bar,body[data-game=squish].play-active .utility{display:none}
+ body[data-game=bite].play-active .stage{width:min(100%,calc((100svh - 245px)*360/430))}
+ body[data-game=squish].play-active .stage{width:min(100%,calc((100svh - 250px)*360/480))}
+ body[data-game=bite] .hud,body[data-game=squish] .hud{margin:5px 0}
+ body[data-game=bite] .bite,body[data-game=squish] .hold{margin-top:8px;padding-block:10px}
+ body[data-game=bite] .hint,body[data-game=squish] #hint{margin:7px 0;min-height:18px}
+ body[data-game=bite] footer,body[data-game=squish] footer{margin-top:4px}
+ body[data-game=tower].play-active .language-row,body[data-game=tower].play-active .eyebrow,body[data-game=tower].play-active .subtitle{display:none}
+ body[data-game=tower].play-active main{padding-top:8px}
+ body[data-game=tower].play-active h1{font-size:22px;margin:0}
+ body[data-game=tower].play-active .numbers{margin:6px 0}
+ body[data-game=rain].play-active .toolbar{display:none}
+ body[data-game=rain].play-active main{padding:8px 12px}
+ body[data-game=rain].play-active header .kicker,body[data-game=rain].play-active header .sub{display:none}
+ body[data-game=rain].play-active h1{font-size:22px;margin:0}
+ body[data-game=rain].play-active .status{margin:4px 0}
+ body[data-game=rain].play-active .stage{width:min(100%,calc((100svh - 235px)*360/520));margin-inline:auto}
+ body[data-game=rain].play-active .tools{margin-top:6px}
+}
+@media(prefers-reduced-motion:reduce){body[data-game] .portal-back{scroll-behavior:auto}}

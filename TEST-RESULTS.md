@@ -1,6 +1,5 @@
-# STUDIO checks —2026-10-21
-9 rule checks pass with unchanged scoring/shapes.500 dense-board3-piece legal witnesses pass without mutating the real board;30 daily deals remain board-independent.6 drag geometry,12 platform persistence/lifecycle,5 SFX,6 locale,4 BGM scheduler checks pass.
+# Validation 2026-10-28
 
-Browser local: predicted+230 matched actual gain,450→630 rankSPARK, next clear860/combo2, mouse drag870, records with mission progress, no captured direct-tab errors.390×844 layout: board366×366 and hand ends692px;320×740: board300×300 and hand ends620px. No horizontal overflow. These are iframe layout checks, not iPhone device emulation. Public smoke and deployment evidence are recorded in BLOCK-RUSH-STUDIO-release.md.
+Engine: 9 rule groups; 910 board witnesses; 149 Standard runs. Migration tests preserve legacy board/hand/RNG/score and daily bests. 12 host adapter tests cover failed load/save, serialized saves, cloud-only operation, pause/resume/audio and bounded save history. Audio tests cover silent gesture unlock, distinct placement/clear sequences, mute and cancellation.
 
-Formal certification and physical iPhone verification of this edition are pending. Existing production game and its save key unchanged.
+375x667 browser taps verified stable board top233.796875 and scroll0 across consecutive180/410 clears in the owner-approved test build. The owner confirmed on iPhone that the scroll jump was gone and audio played. SDK simulation verified load->save->ready, placement30->cloud save->sendScore30, host pause and muted resume. These checks do not substitute for YouTube acceptance testing.
