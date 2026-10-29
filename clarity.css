@@ -55,3 +55,7 @@ html,body,#game,#game *{overflow-anchor:none}
 #prediction{overflow:hidden;white-space:nowrap}
 
 .studio-tools{flex-wrap:wrap}.studio-tools>button{flex:1 1 70px}.studio-tools .difficulty-switch{order:-1;flex:0 0 100%;display:flex;gap:5px;padding:3px;border:1px solid #78918f;border-radius:10px;background:#122735}.difficulty-switch button{min-height:36px;flex:1;border:1px solid transparent;font-size:12px;letter-spacing:0;color:#b8c6cd}.difficulty-switch button[aria-pressed=true]{background:#a7d3bc;color:#102e29;border-color:#d4eadd;font-weight:900}.difficulty-switch button[aria-pressed=true]::before{content:'✓ ';font-weight:900}#difficulty[hidden]{display:none!important}
+
+/* focusfix1: pointer placement has no persistent cell cursor; keyboard retains one. */
+#board .cell:focus,#board .cell:focus-visible{outline:none!important}
+#board.keyboard-input .cell:focus-visible{outline:3px solid #b9e5ce!important;outline-offset:-3px}

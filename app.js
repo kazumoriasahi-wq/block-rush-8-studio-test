@@ -14,6 +14,16 @@ function save(){if(!state)return;store.set(sessionKey(),JSON.stringify(state));v
 const S=BlockRushSound.create({allowed:()=>!muted&&!paused&&started&&P.audioEnabled&&(P.hosted||!document.hidden),createContext:()=>new(window.AudioContext||window.webkitAudioContext)(),onBlocked:()=>msg(t('効果音を試すボタンをタップしてください。iPhoneの消音モードと音量も確認できます。'))});
 function sound(type,detail={}){musicUnlocked=true;void S.play(type,detail);music();}
 function soundUI(){$('sound').textContent=muted?'♩':'♪';$('sound').setAttribute('aria-pressed',String(!muted));$('sound').hidden=P.hosted;$('sound').setAttribute('aria-label',muted?t('サウンド OFF。オンにする'):t('サウンド ON。オフにする'));}
+// Safari can retain :focus-visible on a tapped gridcell after placement.
+// Track keyboard navigation explicitly; pointer play must never leave a cursor ring.
+function pointerBoardInput(){
+ $('board').classList.remove('keyboard-input');
+ if($('board').contains(document.activeElement))document.activeElement.blur();
+}
+document.addEventListener('pointerdown',pointerBoardInput,{capture:true,passive:true});
+document.addEventListener('keydown',e=>{
+ if(e.key==='Tab'||['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))$('board').classList.add('keyboard-input');
+},{capture:true});
 for(let y=0;y<8;y++)for(let x=0;x<8;x++){const cell=document.createElement('div');cell.className='cell';cell.setAttribute('role','gridcell');cell.dataset.x=x;cell.dataset.y=y;cell.tabIndex=x===0&&y===0?0:-1;$('board').append(cell);cells.push(cell);}
 function load(next,fresh=false){if(P.paused)return;stopCheer(true);clearDrag();epoch++;busy=false;drag=null;selected=null;userPaused=false;paused=false;$('paused').hidden=true;$('effects').replaceChildren();mode=next;const day=utcDay();state=!fresh?E.restore(store.get(sessionKey())):null;if(!state||state.mode!==mode||state.pool!==difficulty||(mode==='daily'&&state.day!==day))state=E.create(mode==='daily'?E.seedFor('br8-v2:'+day):crypto.getRandomValues(new Uint32Array(1))[0],mode,mode==='daily'?day:'',difficulty);best=Math.max(0,Number(store.get(bestKey()))||0,state.score);$('classic').setAttribute('aria-pressed',String(mode==='classic'));$('daily').setAttribute('aria-pressed',String(mode==='daily'));$('bestLabel').textContent=mode==='daily'?'DAILY':'CLASSIC';$('modeLabel').textContent=mode==='daily'?state.day+t(' · UTC 共通チャレンジ'):t('自由に、あなたのペースで。');$('missionTitle').textContent=mode==='daily'?'DAILY MISSIONS':'SESSION MISSIONS';render();save();msg(mode==='daily'?t('今日の同じブロック列に挑戦。何度でも遊べます。'):t('ブロックを選んで、盤面に置こう。'));if(state.over)gameover();}
 let previewKey=null;
