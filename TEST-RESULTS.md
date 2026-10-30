@@ -1,5 +1,6 @@
-# Validation 2026-10-28
+# Verification — 2026-10-30
 
-Engine: 9 rule groups; 910 board witnesses; 149 Standard runs. Migration tests preserve legacy board/hand/RNG/score and daily bests. 12 host adapter tests cover failed load/save, serialized saves, cloud-only operation, pause/resume/audio and bounded save history. Audio tests cover silent gesture unlock, distinct placement/clear sequences, mute and cancellation.
-
-375x667 browser taps verified stable board top233.796875 and scroll0 across consecutive180/410 clears in the owner-approved test build. The owner confirmed on iPhone that the scroll jump was gone and audio played. SDK simulation verified load->save->ready, placement30->cloud save->sendScore30, host pause and muted resume. These checks do not substitute for YouTube acceptance testing.
+Owner confirmed the independent fever test works on a physical iPhone before promotion.
+Five-clear threshold, trigger-move double points, placement/clear/combo multiplier, expiry/refresh, save restore and invalid data checks passed. Sixty deterministic runs retained original boards, deals, RNG and base points; all 28 shapes snapped at four sizes for touch/mouse.
+Promotion migration checks retained original public/SDK preview keys, Standard/Challenge hands, RNG, score and bests, and roundtripped remaining fever time. Twelve host adapter tests passed, including cloud-only storage, failed load/save, overlapping saves, pause/resume and host mute.
+Browser controlled SDK fixture: fifth clear scored 1000+760=1760; host pause froze fever at19.8 seconds. Fixtures are not shipped. Previous white-ring, drag-line and scroll fixes retained. No official YouTube acceptance or publication is implied.

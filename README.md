@@ -1,11 +1,5 @@
-# BLOCK RUSH 8 STUDIO
+# BLOCK RUSH 8 STUDIO — PIP FEVER
 
-Updated 2026-10-28. Standard keeps the original 16 shapes; Challenge offers 28. Separate classic/daily sessions and best scores per difficulty. Original scoring and 8x8 rules are preserved. Existing 16-shape sessions and scores migrate to Standard without resetting the board or RNG.
+Updated 2026-10-30. Five consecutive clear moves activate 20-second double scoring from the fifth move. Further five-clear streaks refresh the clock. Standard16/Challenge28, classic/daily sessions, existing cloud saves and browser preview records retained. Translucent combo, three Pip poses, fever fanfare and compact focus view. Host pause freezes fever and audio; host mute respected.
 
-Fixed-size Canvas drag, in-board combo notice, stable scroll position, gesture-unlocked placement/clear audio and original BGM. Japanese/English.
-
-The production index loads the YouTube Playables SDK before game code. Hosted play uses cloud saves, host pause/audio/language and readiness hooks; no browser storage is used in the hosted adapter. Classic leaderboard submits the higher best across the two difficulties.
-
-This is an SDK-integrated build, not a statement of YouTube approval or publication. Private mocks and test fixtures are not shipped.
-
-Public preview: https://kazumoriasahi-wq.github.io/block-rush-8-studio-test/?lang=ja&v=studioflow1
+The SDK loads before game code. Hosted storage uses loadData/saveData only, readiness and classic leaderboard behavior preserved. No production mocks, ads, analytics or portal links in this package. An SDK-integrated build is not YouTube approval or live publication.
